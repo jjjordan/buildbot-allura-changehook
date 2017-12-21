@@ -1,6 +1,6 @@
 
 # Hacked together by John J. Jordan <jj@jjjordan.io>
-# License: CC0 https://creativecommons.org/share-your-work/public-domain/cc0/
+# License: MIT
 
 # This is documented here: https://forge-allura.apache.org/p/allura/wiki/Webhooks/
 
