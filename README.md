@@ -21,6 +21,27 @@ sometimes results in buildbot building against the wrong latest version when
 multiple changes are pushed.  The workaround is to schedule other builds at
 regular intervals (perhaps once a day) to pick up wrongly-ordered changes.
 
+## Installation
+
+On BuildBot v0.9.10 and later, simply clone this repository and install this
+package in the buildbot master's environment:
+
+```sh
+git clone https://github.com/jjjordan/buildbot-allura-changehook.git
+cd buildbot-allura-changehook
+python setup.py install
+```
+
+On earlier versions of BuildBot, copy `allura.py` into the `hooks`
+directory.  For example, in the Buildbot Docker container, this would look
+like:
+
+```sh
+git clone https://github.com/jjjordan/buildbot-allura-changehook.git
+cd buildbot-allura-changehook
+cp buildbot_allura_changehook/allura.py /usr/lib/python2.7/site-packages/buildbot/www/hooks
+```
+
 ## Usage
 
 To use this changehook, add an entry to your `master.cfg`:
@@ -63,6 +84,10 @@ this option.
 repositories can (usually) be detected from the incoming data and this
 should not be specified.  If you have trouble with sourceforge, or are using
 Allura, you should specify this option.
+
+## Webhook location
+
+Point Allura at your changehook, which will be found at: `http://*host*/*base path*/change_hook/allura`
 
 ## About
 
